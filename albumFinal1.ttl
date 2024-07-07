@@ -1,0 +1,167 @@
+@prefix ex: <http://example.org/photography#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wikidata: <http://www.wikidata.org/entity/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:Photo1 a ex:Photograph ;
+    rdfs:label "GPAK-0108-01" ;
+    ex:accessURL "http://example.org/view/photo1"@en ;
+    ex:belongsToAlbum ex:Album1 ;
+    ex:description "A landscape in the road to the Soltanabad"@en,
+        "يک منظره در راه سلطان آباد"@fa ;
+    ex:hasBuilding ex:Building1 ;
+    ex:hasLocation wikidata:Q5946683 ;
+    ex:hasPerson ex:Person1 ;
+    ex:hasPhotographer ex:Photographer1,
+        ex:Photographer2 ;
+    ex:hasSubject ex:Subject1 ;
+    ex:iiifManifest "http://example.org/iiif/photo1"@en ;
+    ex:tags [ a rdf:Bag ;
+            rdf:_1 ex:Tag1 ;
+            rdf:_2 ex:Tag2 ] ;
+    ex:takenAt "1841-06-12"^^xsd:date .
+
+ex:PhotographyOntology a owl:Ontology ;
+    rdfs:label "Photography Ontology" ;
+    rdfs:comment "An ontology to represent vintage photograph albums, photographs, tags, and related subjects." .
+
+ex:accessURL a owl:DatatypeProperty ;
+    rdfs:label "accessURL" ;
+    rdfs:comment "The accessURL of a photograph." ;
+    rdfs:domain ex:Photograph ;
+    rdfs:range rdf:langString .
+
+ex:albumDescription a owl:DatatypeProperty ;
+    rdfs:label "albumDescription" ;
+    rdfs:comment "The albumDescription of a album." ;
+    rdfs:domain ex:Album ;
+    rdfs:range xsd:string .
+
+ex:appearance a owl:DatatypeProperty ;
+    rdfs:label "appearance" ;
+    rdfs:comment "The appearance of a album." ;
+    rdfs:domain ex:Album ;
+    rdfs:range xsd:string .
+
+ex:belongsToAlbum a owl:DatatypeProperty ;
+    rdfs:label "belongsToAlbum" ;
+    rdfs:comment "The belongsToAlbum of a photograph." ;
+    rdfs:domain ex:Photograph ;
+    rdfs:range ex:Album .
+
+ex:containsPhotograph a owl:DatatypeProperty ;
+    rdfs:label "containsPhotograph" ;
+    rdfs:comment "The containsPhotograph of a album." ;
+    rdfs:domain ex:Album ;
+    rdfs:range ex:Photograph .
+
+ex:coverMaterial a owl:DatatypeProperty ;
+    rdfs:label "coverMaterial" ;
+    rdfs:comment "The coverMaterial of a album." ;
+    rdfs:domain ex:Album ;
+    rdfs:range xsd:string .
+
+ex:description a owl:DatatypeProperty ;
+    rdfs:label "description" ;
+    rdfs:comment "The description of a photograph." ;
+    rdfs:domain ex:Photograph ;
+    rdfs:range xsd:string .
+
+ex:hasBuilding a owl:DatatypeProperty ;
+    rdfs:label "hasBuilding" ;
+    rdfs:comment "The hasBuilding of a photograph." ;
+    rdfs:domain ex:Photograph ;
+    rdfs:range ex:Building .
+
+ex:hasLocation a owl:DatatypeProperty ;
+    rdfs:label "hasLocation" ;
+    rdfs:comment "The hasLocation of a photograph." ;
+    rdfs:domain ex:Photograph ;
+    rdfs:range ex:Location .
+
+ex:hasPerson a owl:DatatypeProperty ;
+    rdfs:label "hasPerson" ;
+    rdfs:comment "The hasPerson of a photograph." ;
+    rdfs:domain ex:Photograph ;
+    rdfs:range ex:Person .
+
+ex:hasPhotographer a owl:DatatypeProperty ;
+    rdfs:label "hasPhotographer" ;
+    rdfs:comment "The hasPhotographer of a photograph." ;
+    rdfs:domain ex:Photograph ;
+    rdfs:range ex:Person .
+
+ex:hasSubject a owl:DatatypeProperty ;
+    rdfs:label "hasSubject" ;
+    rdfs:comment "The hasSubject of a photograph." ;
+    rdfs:domain ex:Photograph ;
+    rdfs:range ex:Subject .
+
+ex:iiifManifest a owl:DatatypeProperty ;
+    rdfs:label "iiifManifest" ;
+    rdfs:comment "The iiifManifest of a photograph." ;
+    rdfs:domain ex:Photograph ;
+    rdfs:range rdf:langString .
+
+ex:size a owl:DatatypeProperty ;
+    rdfs:label "size" ;
+    rdfs:comment "The size of a album." ;
+    rdfs:domain ex:Album ;
+    rdfs:range xsd:string .
+
+ex:tags a owl:DatatypeProperty ;
+    rdfs:label "tags" ;
+    rdfs:comment "The tags of a photograph." ;
+    rdfs:domain ex:Photograph ;
+    rdfs:range rdf:Bag .
+
+ex:takenAt a owl:DatatypeProperty ;
+    rdfs:label "takenAt" ;
+    rdfs:comment "The takenAt of a photograph." ;
+    rdfs:domain ex:Photograph ;
+    rdfs:range xsd:date .
+
+ex:Album1 a ex:Album ;
+    rdfs:label "GPAK-0108" ;
+    ex:albumDescription "Albumkhaneh from the Golestan Palace" ;
+    ex:appearance "تذهيب و طلا اندازی"@fa ;
+    ex:coverMaterial "Lacquer Golo Morgh"@en,
+        "لاکی گل و مرغ"@fa ;
+    ex:size "30x40 cm" .
+
+ex:Building a owl:Class ;
+    rdfs:label "Building" ;
+    rdfs:comment "A building entity." .
+
+ex:Location a owl:Class ;
+    rdfs:label "Location" ;
+    rdfs:comment "A location entity." .
+
+ex:Subject a owl:Class ;
+    rdfs:label "Subject" ;
+    rdfs:comment "A subject entity." .
+
+ex:Tag1 a ex:Tag ;
+    rdfs:label "Qajar"@en,
+        "قاجار"@fa .
+
+ex:Tag2 a ex:Tag ;
+    rdfs:label "Soltanabad Trip"@en .
+
+ex:Person a owl:Class ;
+    rdfs:label "Person" ;
+    rdfs:comment "A person entity." .
+
+ex:Tag a owl:Class ;
+    rdfs:label "Tag" ;
+    rdfs:comment "A tag entity." .
+
+ex:Album a owl:Class ;
+    rdfs:label "Album" ;
+    rdfs:comment "A album entity." .
+
+ex:Photograph a owl:Class ;
+    rdfs:label "Photograph" ;
+    rdfs:comment "A photograph entity." .
